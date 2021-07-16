@@ -113,10 +113,11 @@ int
 	src_ttl		= DEFAULT_TTL,
 	src_id		= -1, /* random */
 	base_dst_port	= DEFAULT_DPORT,
-	dst_port	= DEFAULT_DPORT,
+	dst_port,
 	src_port,
 	sequence	= 0,
 	initsport	= DEFAULT_INITSPORT,
+	initdport	= DEFAULT_INITDPORT,
 	src_winsize	= DEFAULT_SRCWINSIZE,
 	src_thoff 	= (TCPHDR_SIZE >> 2),
 	count		= DEFAULT_COUNT,
@@ -287,6 +288,12 @@ int main(int argc, char **argv)
 		initsport = src_port = 1024 + (rand() % 2000);
 	else
 		src_port = initsport;
+
+	/* set initial dst port */
+	if (initdport == -1)
+		initdport = dst_port = 1024 + (rand() % 32767);
+	else
+		dst_port = initdport;
 
 	for (c = 0; c < TABLESIZE; c++)
 		delaytable[c].seq = -1;

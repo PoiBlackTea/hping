@@ -95,6 +95,7 @@ void send_tcp(void)
 	sequence++;	/* next sequence number */
 	if (!opt_keepstill)
 		src_port = (sequence + initsport) % 65536;
+		dst_port = (sequence + initdport) % 65536;
 
 	if (opt_force_incdport)
 		dst_port++;

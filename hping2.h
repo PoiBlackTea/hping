@@ -110,6 +110,7 @@
 /* defaults and misc */
 #define DEFAULT_SENDINGWAIT 1	/* wait 1 sec. between sending each packets */
 #define DEFAULT_DPORT	    0	/* default dest. port */
+#define DEFAULT_INITDPORT  -1	/* default initial dst port: -1 means random */
 #define DEFAULT_INITSPORT  -1	/* default initial source port: -1 means random */
 #define DEFAULT_COUNT      -1	/* default packets count: -1 means forever */
 #define DEFAULT_TTL	   64	/* default ip->ttl value */

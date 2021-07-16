@@ -265,6 +265,7 @@ int parse_options(int argc, char **argv)
 			show_version();
 			break;
 		case OPT_DESTPORT:
+			/*
 			if (*ago_optarg == '+')
 			{
 				opt_incdport = TRUE;
@@ -276,6 +277,8 @@ int parse_options(int argc, char **argv)
 				ago_optarg++;
 			}
 			base_dst_port = dst_port = strtol(ago_optarg, NULL, 0);
+			*/
+			initdport = strtol(ago_optarg, NULL, 0);
 			break;
 		case OPT_BASEPORT:
 			initsport = strtol(ago_optarg, NULL, 0);
