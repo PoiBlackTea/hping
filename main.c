@@ -79,6 +79,7 @@ int
 	opt_verbose	= FALSE,
 	opt_winid_order = FALSE,
 	opt_keepstill	= FALSE,
+	opt_keepdstill	= FALSE,
 	opt_datafromfile= FALSE,
 	opt_hexdump	= FALSE,
 	opt_contdump	= FALSE,
@@ -285,13 +286,13 @@ int main(int argc, char **argv)
 
 	/* set initial source port */
 	if (initsport == -1)
-		initsport = src_port = 1024 + (rand() % 2000);
+		initsport = src_port = 1024 + (rand() % 64511);
 	else
 		src_port = initsport;
 
-	/* set initial dst port */
+	/* set initial dst port , rand() at least 2^16 65535-1024=64511*/
 	if (initdport == -1)
-		initdport = dst_port = 1024 + (rand() % 32767);
+		initdport = dst_port = 1024 + (rand() % 64511);
 	else
 		dst_port = initdport;
 
